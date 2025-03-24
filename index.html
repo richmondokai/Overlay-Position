@@ -33,21 +33,22 @@
             padding: 20px;
         }
 
+       
         .orderific-hero {
         background-image: url('rider.png');
         background-size: cover;
         position: relative;
         padding: 40px;
         border-radius: 30px;
-        background-color: #ff5524;
         width: 480px;
+        background-color: #ff5524;
         max-width: 100%;
-        min-height: 300px;
+        height: 100%;
+        max-height: 95vh;
     }
 
-/* First overlay - Orange */
-.orderific-hero::before {
-    content: '';
+    .orderific-hero::before {
+        content: '';
     position: absolute;
     border-radius: 30px;
     top: 0;
@@ -55,32 +56,17 @@
     width: 480px;
     height: 100%;
     background: rgba(255, 86, 52, 0.5);
-    z-index: 2;
-    }
-
-/* Second overlay - Black */
-.orderific-hero::after {
-    content: '';
-    position: absolute;
-    border-radius: 30px;
-    top: 0;
-    left: 0;
-    width: 480px;
-    height: 100%;
-    background:linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 50%, #000000 100%);opacity:50%;
     z-index: 1;
+    height: 95vh;
 }
 
-
-
-
-        .orderific-content {
+.orderific-content {
             position: relative;
             z-index: 5;
             display: flex;
             flex-direction: column;
             color: rgba(255, 255, 255, 1);
-            min-height: 100%;
+            min-height: 95vh;
         }
 
         .orderific-logo {
@@ -98,6 +84,7 @@
             line-height: 20px;
             color: rgba(255, 255, 255, 1);
         }
+
 
        
 
