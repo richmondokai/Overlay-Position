@@ -3,119 +3,170 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Orderific Service Panel - Manage restaurant operations efficiently with BMS.">
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
     <title>Orderific Service Panel</title>
     <style>
-        body {
+        * {
             margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background: #f3f3f3;
+            padding: 0;
+            box-sizing: border-box;
         }
-        .container {
-            width: 90%;
-            max-width: 350px;
-            height: 90vh;
-            max-height: 602px;
-            position: relative;
-            border-radius: 30px;
-            overflow: hidden;
-            background-image: url('https://s3-alpha-sig.figma.com/img/97c5/77dd/b047dd3c09ed673e80bc7a6d07bed063?Expires=1742169600&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=XT~sbdk~zOmkWF8LUamkfymr3JF8AbwlClTX9z~FY0UaJWyFdFLLhXmn65EyK29Z0X~mp7bU46n-PJOi-SjCK~ygjEW816U-Eje4Y-UfoTmeC7sw~YTG8QUcKYBRYjiJ5f3xZ-R3eLIQev1BcDAK7tdblPH0FQHHw2FULE9bdrLOrQTqMybOfj13sMpheswOz2TbCwxPMBr3VIncFn4mTywYhCbznPKfE8Z6LSlWAC-DIHw7efwGNfqviWlLMB2Jk6lNoH8MIkKGyPFLeSHtU8ZpfOEk4oGxo4bYzCfBrFtneCrv-V5kWc78GuWy-tBOUCZ6zMzLWCKyseY5EAvUVw__');
-            background-size: cover;
-            background-position: center;
-            background-color: #ff8945; /* Fallback color */
-            display: flex;
-            justify-content: flex-start;
-            align-items: flex-end;
-            text-align: left;
-            color: white;
-        }
-        .overlay-black {
-            position: absolute;
-            top: 0;
-            left: 0;
+
+        body {
+            font-family: "DM Sans", sans-serif;
+            background: linear-gradient(67.75deg, #FFFFFF 19.18%, #FFEBE7 75.31%);
             width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 1;
-        }
-        .overlay-orange {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 94, 0, 0.6);
-            z-index: 2;
-        }
-        .logo {
-            position: absolute;
-            top: 20px;
-            left: 27%;
-            transform: translateX(-50%);
+            min-height: 100vh;
+            overflow-x: hidden;
             display: flex;
+            justify-content: space-between;
+            flex-direction: column;
+            flex-wrap: nowrap;
+        }
+
+        .orderific-container {
             align-items: center;
-            z-index: 3;
-        }
-        .logo img {
-            width: 120px;
-            height: 40px;
-        }
-        .content {
-            position: relative;
-            z-index: 3;
+            justify-items: center;
             padding: 20px;
-            width: 100%;
+        }
+
+        .orderific-hero {
+        background-image: url('rider.png');
+        background-size: cover;
+        position: relative;
+        padding: 40px;
+        border-radius: 30px;
+        background-color: #ff5524;
+        width: 480px;
+        max-width: 100%;
+        min-height: 300px;
+    }
+
+/* First overlay - Orange */
+.orderific-hero::before {
+    content: '';
+    position: absolute;
+    border-radius: 30px;
+    top: 0;
+    left: 0;
+    width: 480px;
+    height: 100%;
+    background: rgba(255, 86, 52, 0.5);
+    z-index: 1;
+    }
+
+/* Second overlay - Black */
+.orderific-hero::after {
+    content: '';
+    position: absolute;
+    border-radius: 30px;
+    top: 0;
+    left: 0;
+    width: 480px;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    z-index: 2;
+}
+
+
+
+
+        .orderific-content {
+            position: relative;
+            z-index: 5;
             display: flex;
             flex-direction: column;
-            align-items: flex-start;
+            color: rgba(255, 255, 255, 1);
+            min-height: 100%;
         }
-        .content h1 {
-            font-size: 2.7em;
-            margin-bottom: 2px;
-            text-align: center;
-            width: 100%;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+
+        .orderific-logo {
+            width: 180px;
         }
-        .content p {
-            font-size: 0.8em;
-            line-height: 1.1;
-            margin-left: 20px;
-            text-align: left;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+
+        .orderific-title {
+            font-size: 64px;
+            font-weight: 700;
+            margin-top: 140%;
         }
-        @media (max-width: 400px) {
-            body {
-            height: 100vh;
+
+        .orderific-description {
+            font-size: 16px;
+            line-height: 20px;
+            color: rgba(255, 255, 255, 1);
+        }
+
+       
+
+        @media (max-width: 1024px) {
+            .orderific-container {
+                max-width: 100vw;
+                height: auto;
+                padding-left: 48px;
+                padding-right: 48px;
             }
-            .container {
-                width: 100%;
-                height: 100vh;
-                border-radius: 30px;
+
+            .orderific-hero {
+                padding: 20px;
+                border-radius: 20px 20px 0 0;
+                height: 300px;
+                background-size: cover;
+                background-position: center;
+                display: none;
             }
-            .content h1 {
-                font-size: 2em;
+
+            .orderific-hero::before {
+                border-radius: 20px 20px 0 0;
+                display: none;
             }
-            .content p {
-                font-size: 0.9em;
+
+            .orderific-content {
+                align-items: center;
+                text-align: center;
+            }
+
+            .orderific-logo {
+                width: 120px;
+            }
+
+        }
+
+        @media (max-width: 480px) {
+            .orderific-container {
+                max-width: 100vw;
+                padding: 16px;
+            }
+
+            .orderific-hero {
+                height: 250px;
+                display: none;
+            }
+
+            
+        }
+
+        @media (min-resolution: 1dpi) {
+            .orderific-container {
+                transform: scale(1);
             }
         }
     </style>
 </head>
 <body>
-<div class="container">
-    <div class="overlay-black"></div>
-    <div class="overlay-orange"></div>
-    <div class="logo">
-        <img src="Logo.png" alt="Orderific Logo" loading="lazy"> <!-- Replace with your logo URL -->
+    <div class="orderific-container">
+                <!-- Left side image section -->
+                <div class="orderific-hero">
+                    <div class="orderific-content">
+                        <img class="orderific-logo" src="Type4.png" alt="Orderific Logo">
+                        <h2 class="orderific-title">Service Panel</h2>
+                        <p class="orderific-description">Streamline your restaurant operations with BMS. Manage reservations, orders, inventory, and staff effortlessly, and focus on delivering exceptional dining experiences.</p>
+                    </div>
+                </div>
+                <!-- Right side form -->
+                
     </div>
-    <div class="content">
-        <h1>Service Panel</h1>
-        <p>Streamline your restaurant operations with BMS. Manage reservations, orders, inventory, and staff effortlessly, and focus on delivering exceptional dining experiences.</p>
-    </div>
-</div>
 </body>
 </html>
